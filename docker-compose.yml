@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  did:
+    build:
+      context: .
+      dockerfile: ./docker_archlinux_user/Dockerfile
+      args:
+        USER_NAME: yasunori
+        GROUP_NAME: yasunori
+        PASSWD: yasunori
+        SHELL_NAME: zsh
+        PKGLIST_FILE: ./custom_pkglist.txt
+    tty: yes
