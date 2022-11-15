@@ -1,0 +1,9 @@
+xdg-user-dirs
+git
+zsh
+vim
+neovim
+deno
+exa
+bat
+ripgrep
