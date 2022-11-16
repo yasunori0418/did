@@ -11,4 +11,6 @@ services:
         PASSWD: yasunori
         SHELL_NAME: zsh
         PKGLIST_FILE: ./custom_pkglist.txt
-    tty: yes
+    environment:
+      TZ: Asia/Tokyo
+    tty: true
