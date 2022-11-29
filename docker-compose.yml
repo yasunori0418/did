@@ -14,3 +14,7 @@ services:
     environment:
       TZ: Asia/Tokyo
     tty: true
+    volumes:
+      - type: bind
+        source: ./Public
+        target: $HOME/Public
