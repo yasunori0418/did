@@ -7,3 +7,5 @@ deno
 exa
 bat
 ripgrep
+npm
+go
