@@ -19,3 +19,6 @@ services:
       - type: bind
         source: ./Public
         target: $HOME/Public
+      - type: bind
+        source: ./Project
+        target: $HOME/Project
