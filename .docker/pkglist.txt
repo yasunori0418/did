@@ -1,7 +1,9 @@
 xdg-user-dirs
 git
 zsh
+vim
 cmake
 unzip
 ninja
 curl
+wget
