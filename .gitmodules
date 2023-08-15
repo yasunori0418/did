@@ -1,3 +1,0 @@
-[submodule "docker_archlinux_user"]
-	path = docker_archlinux_user
-	url = https://github.com/yasunori-kirin0418/docker_archlinux_user.git
