@@ -12,5 +12,11 @@ init: ## Initialize my favorite environment container.
 clean: ## Remove all container information.
 	@docker compose down --rmi all --remove-orphans --volumes
 
+start:
+	@docker compose start
+
+stop:
+	@docker compose stop
+
 exec: ## get inside the container
 	@docker compose exec did zsh
