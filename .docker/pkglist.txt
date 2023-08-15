@@ -1,11 +1,7 @@
 xdg-user-dirs
 git
 zsh
-vim
-neovim
-deno
-exa
-bat
-ripgrep
-npm
-go
+cmake
+unzip
+ninja
+curl
