@@ -3,21 +3,13 @@ services:
   did:
     build:
       context: .
-      dockerfile: ./docker_archlinux_user/Dockerfile
-      args:
-        USER_NAME: yasunori
-        GROUP_NAME: yasunori
-        PASSWD: yasunori
-        SHELL_NAME: zsh
-        PKGLIST_FILE: ./custom_pkglist.txt
+      dockerfile: ./.docker/Dockerfile
     container_name: did
-    environment:
-      TZ: Asia/Tokyo
     tty: true
     volumes:
       - type: bind
         source: ./Public
-        target: $HOME/Public
+        target: /root/Public
       - type: bind
         source: ./Project
-        target: $HOME/Project
+        target: /root/Project
