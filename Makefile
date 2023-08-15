@@ -9,5 +9,8 @@ help: ## subcommand list and description.
 init: ## Initialize my favorite environment container.
 	@docker compose up -d
 
+clean: ## Remove all container information.
+	@docker compose down --rmi all --remove-orphans --volumes
+
 exec: ## get inside the container
 	@docker compose exec did zsh
