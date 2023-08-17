@@ -22,8 +22,8 @@ start: ## docker compose start
 stop: ## docker compose stop
 	@docker compose stop
 
-exec: ## get inside the container
+zsh: ## get inside the container
 	@docker compose exec did zsh
 
 ps: ## docker compose ps
-	@docker compose ps
+	@docker compose ps -a
