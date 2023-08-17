@@ -8,6 +8,9 @@ help: ## subcommand list and description.
 
 init: ## Initialize my favorite environment container.
 	@docker compose up -d
+	@sleep 5
+	@docker compose exec -w /root/dotfiles did make init
+	@docker compose exec did zsh
 
 clean: ## Remove all container information.
 	@docker compose down --rmi all --remove-orphans --volumes
