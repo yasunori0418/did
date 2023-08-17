@@ -10,6 +10,7 @@ init: ## Initialize my favorite environment container.
 	@docker compose up -d
 	@sleep 5
 	@docker compose exec -w /root/dotfiles did make init
+	@docker compose exec did zsh -c 'rtx install --yes'
 	@docker compose exec did zsh
 
 clean: ## Remove all container information.
