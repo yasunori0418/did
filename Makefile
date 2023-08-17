@@ -12,6 +12,10 @@ init: ## Initialize my favorite environment container.
 clean: ## Remove all container information.
 	@docker compose down --rmi all --remove-orphans --volumes
 
+reset: ## clean & init
+	@make clean
+	@make init
+
 start: ## docker compose start
 	@docker compose start
 
