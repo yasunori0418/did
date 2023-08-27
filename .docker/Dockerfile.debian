@@ -1,0 +1,11 @@
+FROM debian:bookworm-slim
+
+COPY --from=busybox:glibc /bin/busybox /bin/busybox
+COPY ./packages.txt /etc/apt/packages.txt
+
+RUN apt-get update && \
+    apt-get install -y - < /etc/apt/packages.txt && \
+    for cmd in $(busybox --list) ; \
+        do echo "#!/usr/bin/env bash\nbusybox ${cmd} \$@" > /usr/local/bin/$cmd ; \
+    done && \
+    chmod +x /usr/local/bin/*
