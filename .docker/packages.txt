@@ -1,0 +1,5 @@
+locales
+ninja-build
+gettext
+cmake
+curl
