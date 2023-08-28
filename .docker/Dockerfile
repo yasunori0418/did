@@ -13,15 +13,15 @@ WORKDIR /root
 
 RUN apt-get update && \
     apt-get install -y \
-        locales \
-        xdg-user-dirs \
-        ninja-build \
-        gettext \
         cmake \
         curl \
-        zsh \
+        gettext \
         git \
+        locales \
+        ninja-build \
         vim \
+        xdg-user-dirs \
+        zsh \
         && \
     rm -rf /var/lib/apt/lists/* && \
     for cmd in $(busybox --list) ; \
