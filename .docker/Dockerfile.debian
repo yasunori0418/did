@@ -5,6 +5,7 @@ COPY --from=busybox:glibc /bin/busybox /bin/busybox
 RUN apt-get update && \
     apt-get install -y \
         locales \
+        xdg-user-dirs \
         ninja-build \
         gettext \
         cmake \
@@ -16,3 +17,9 @@ RUN apt-get update && \
         do echo "#!/usr/bin/env bash\nbusybox ${cmd} \$@" > /usr/local/bin/$cmd ; \
     done && \
     chmod +x /usr/local/bin/*
+
+ENV TZ=Asia/Tokyo
+ENV SHELL=/usr/bin/zsh
+WORKDIR /root
+
+RUN xdg-user-dirs-update
