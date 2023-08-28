@@ -23,6 +23,7 @@ init: ## Initialize my favorite environment container.
 	@docker compose up -d
 	@sleep 5
 	@docker compose exec did git clone https://github.com/yasunori0418/dotfiles.git
+	@sleep 5
 	@docker compose exec -w /root/dotfiles did make init
 	@docker compose exec did zsh -c 'rtx install --yes'
 	@make zsh
