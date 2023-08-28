@@ -19,6 +19,7 @@ zsh: ## get inside the container
 	@docker compose exec did zsh
 
 init: ## Initialize my favorite environment container.
+	@docker compose build --no-cache
 	@docker compose up -d
 	@sleep 5
 	@docker compose exec did git clone https://github.com/yasunori0418/dotfiles.git
