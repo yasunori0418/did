@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM ubuntu:latest
 
 COPY --from=busybox:glibc /bin/busybox /bin/busybox
 
@@ -13,15 +13,14 @@ WORKDIR /root
 
 RUN apt-get update && \
     apt-get install -y \
-        cmake \
         curl \
-        gettext \
         git \
         locales \
-        ninja-build \
         vim \
         xdg-user-dirs \
         zsh \
+        make \
+        build-essential \
         && \
     rm -rf /var/lib/apt/lists/* && \
     for cmd in $(busybox --list) ; \
@@ -31,5 +30,4 @@ RUN apt-get update && \
     ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && \
     echo ${TZ} > /etc/timezone && \
     localedef -i ${COUNTRY} -c -f ${ENCODE} -A /usr/share/locale/locale.alias ${COUNTRY}.${ENCODE} && \
-    xdg-user-dirs-update
-
+    LANG=C xdg-user-dirs-update
