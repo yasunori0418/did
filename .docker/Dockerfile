@@ -13,14 +13,14 @@ WORKDIR /root
 
 RUN apt-get update && \
     apt-get install -y \
+        build-essential \
         curl \
         git \
         locales \
+        make \
         vim \
         xdg-user-dirs \
         zsh \
-        make \
-        build-essential \
         && \
     rm -rf /var/lib/apt/lists/* && \
     for cmd in $(busybox --list) ; \
