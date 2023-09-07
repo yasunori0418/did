@@ -1,7 +1,7 @@
 FROM archlinux:base-devel
 
 # Load package list file with variable.
-ARG PKGLIST_FILE=./pkglist.txt
+ARG PKGLIST_FILE=./.docker/pkglist.txt
 
 # You can specify a list of non-aur packages in text format.
 # Adding package list.
@@ -11,6 +11,7 @@ ARG COUNTRY=ja_JP
 ARG ENCODE=UTF-8
 ENV TZ=Asia/Tokyo
 ENV SHELL=/usr/bin/zsh
+WORKDIR /root
 
 # The pacman-key and pacman -Syu commands must be run for the initial time with archlinux images.
 RUN pacman-key --init && \
