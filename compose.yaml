@@ -5,6 +5,7 @@ services:
       context: .
       dockerfile: ./.docker/Dockerfile
     container_name: did
+    hostname: did
     tty: true
     volumes:
       - type: bind
