@@ -1,45 +1,24 @@
-FROM ubuntu:latest
+FROM archlinux:base-devel
+
+# Load package list file with variable.
+ARG PKGLIST_FILE=./.docker/pkglist.txt
+
+# You can specify a list of non-aur packages in text format.
+# Adding package list.
+COPY ${PKGLIST_FILE} /etc/pacman.d/${PKGLIST_FILE}
 
 ARG COUNTRY=ja_JP
 ARG ENCODE=UTF-8
-
 ENV TZ=Asia/Tokyo
-ENV PATH=/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/sbin:/usr/local/bin
 ENV SHELL=/usr/bin/zsh
 WORKDIR /root
 
-COPY ./.docker/zonetime_Asia_Tokyo /etc/localtime
-
-RUN apt-get update && \
-    apt-get install -y \
-        build-essential \
-        libssl-dev \
-        zlib1g-dev \
-        libbz2-dev \
-        libreadline-dev \
-        libsqlite3-dev \
-        wget \
-        llvm \
-        libncurses5-dev \
-        libncursesw5-dev \
-        xz-utils \
-        tk-dev \
-        libffi-dev \
-        liblzma-dev \
-        curl \
-        git \
-        unzip \
-        locales \
-        make \
-        vim \
-        xdg-user-dirs \
-        zsh \
-        && \
-    rm -rf /var/lib/apt/lists/* && \
+# The pacman-key and pacman -Syu commands must be run for the initial time with archlinux images.
+RUN pacman-key --init && \
+    pacman-key --populate archlinux && \
+    pacman -Syu --noconfirm && \
+    pacman -S --needed --noconfirm - < /etc/pacman.d/${PKGLIST_FILE} && \
     xdg-user-dirs-update && \
-    sed -i "/${COUNTRY}.${ENCODE}/s/^# //g" /etc/locale.gen && \
-    locale-gen
+    ln -svf /usr/share/zoneinfo/${TZ} /etc/localtime && \
+    echo "LANG=${COUNTRY}.${ENCODE}" > /etc/locale.conf
 
-ENV LANG=${COUNTRY}.${ENCODE}
-ENV LANGUAGE=${COUNTRY}:ja
-ENV LC_ALL=${LANG}

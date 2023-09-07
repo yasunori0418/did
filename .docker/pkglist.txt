@@ -1,0 +1,9 @@
+cmake
+curl
+git
+ninja
+unzip
+vim
+wget
+xdg-user-dirs
+zsh
