@@ -26,9 +26,8 @@ init: ## Initialize my favorite environment container.
 	@sleep 8
 	@docker compose exec -w /root/dotfiles did make init
 	@sleep 3
-	@docker compose exec -w /root/dotfiles did make pyenv-get
 	-@docker compose exec -w /root/dotfiles did make nvim-night
-	-@docker compose exec did zsh -c 'rtx install --yes'
+	@docker compose exec did zsh -c 'rtx install --yes'
 	@sleep 3
 	-@docker compose exec did zsh -c 'nvim -c q!'
 	@make zsh
