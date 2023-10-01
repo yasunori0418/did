@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-dotfiles_branch = reduce_depend
+dotfiles_branch = main
 
 .PHONY := help
 # INFO: 参考サイト - https://postd.cc/auto-documented-makefile/
