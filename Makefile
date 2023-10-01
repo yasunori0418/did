@@ -1,4 +1,5 @@
 .DEFAULT_GOAL := help
+dotfiles_branch = reduce_depend
 
 .PHONY := help
 # INFO: 参考サイト - https://postd.cc/auto-documented-makefile/
@@ -22,7 +23,7 @@ init: ## Initialize my favorite environment container.
 	@docker compose build --no-cache
 	@docker compose up -d
 	@sleep 5
-	@docker compose exec did git clone https://github.com/yasunori0418/dotfiles.git
+	@docker compose exec did git clone -b $(dotfiles_branch) https://github.com/yasunori0418/dotfiles.git
 	@sleep 8
 	@docker compose exec -w /root/dotfiles did make init
 	@sleep 3
