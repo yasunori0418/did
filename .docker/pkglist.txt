@@ -1,7 +1,9 @@
 cmake
 curl
 git
+less
 ninja
+openssh
 unzip
 vim
 wget
