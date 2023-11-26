@@ -16,7 +16,8 @@ stop: ## docker compose stop
 ps: ## docker compose ps
 	@docker compose ps -a
 
-zsh: ## get inside the container
+zsh: ## container start and attach with zsh
+	@make start
 	@docker compose exec did zsh
 
 init: ## Initialize my favorite environment container.
