@@ -13,4 +13,4 @@ services:
         target: /root/Public
       - type: bind
         source: ./Project
-        target: /root/Project
+        target: /root/src/Project
