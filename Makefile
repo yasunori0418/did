@@ -29,9 +29,7 @@ init: ## Initialize my favorite environment container.
 	@docker compose exec -w /root/dotfiles did make init
 	@sleep 3
 	-@docker compose exec -w /root/dotfiles did make nvim-night
-	@docker compose exec did zsh -c 'rtx install --yes'
-	@sleep 3
-	-@docker compose exec did zsh -c 'nvim'
+	@docker compose exec did zsh -c 'mise install --yes'
 	@make zsh
 
 clean: ## Remove all container information.
