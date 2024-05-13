@@ -16,8 +16,8 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build docker image
-      - run: |
+        run: |
           docker build --rm=true --force-rm=true --no-cache=true --pull=true \
           --tag="ghcr.io/${GITHUB_ACTOR}/did:latest" .
       - name: Push docker image to ghcr.io
-      - run: docker push ghcr.io/${GITHUB_ACTOR}/did:latest
+        run: docker push "ghcr.io/${GITHUB_ACTOR}/did:latest"
