@@ -16,6 +16,10 @@ stop: ## docker compose stop
 ps: ## docker compose ps
 	@docker compose ps -a
 
+build: ## build did image
+	@docker build --rm=true --force-rm=true --no-cache=true --pull=true \
+	--tag="ghcr.io/yasunori0418/did:latest" .
+
 zsh: ## container start and attach with zsh
 	@make start
 	@docker compose exec did zsh
