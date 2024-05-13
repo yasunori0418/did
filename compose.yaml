@@ -1,9 +1,7 @@
 ---
 services:
   did:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    image: ghcr.io/yasunori0418/did:latest
     container_name: did
     hostname: did
     tty: true
