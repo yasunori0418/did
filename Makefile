@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
-dotfiles_branch = main
+MAKEFLAGS += --always-make
+BRANCH := main
 
-.PHONY := help
 # INFO: 参考サイト - https://postd.cc/auto-documented-makefile/
 help: ## subcommand list and description.
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
@@ -24,8 +24,7 @@ init: ## Initialize my favorite environment container.
 	@docker compose build
 	@docker compose up -d
 	@sleep 5
-	@docker compose exec did git clone -b $(dotfiles_branch) https://github.com/yasunori0418/dotfiles.git
-	@sleep 8
+	@docker compose exec did git clone -b $(BRANCH) https://github.com/yasunori0418/dotfiles.git
 	@docker compose exec -w /root/dotfiles did make init
 
 PHONY := clean
@@ -35,3 +34,11 @@ clean: ## Remove all container information.
 reset: ## clean & init
 	@make clean
 	@make init
+
+PHONY := test
+test: ## did container setup check.
+	@make init
+	@echo "did setup no problem!"
+	@make clean
+
+PHONY := all
