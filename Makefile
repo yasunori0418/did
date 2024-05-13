@@ -25,7 +25,6 @@ zsh: ## container start and attach with zsh
 	@docker compose exec did zsh
 
 init: ## Initialize my favorite environment container.
-	@docker compose build
 	@docker compose up -d
 	@sleep 5
 	@docker compose exec did git clone -b $(BRANCH) https://github.com/yasunori0418/dotfiles.git
