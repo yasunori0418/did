@@ -1,7 +1,7 @@
 FROM archlinux:base-devel
 
 # Load package list file with variable.
-ARG PKGLIST_FILE=./.docker/pkglist.txt
+ARG PKGLIST_FILE=./pkglist.txt
 
 # You can specify a list of non-aur packages in text format.
 # Adding package list.
