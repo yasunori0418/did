@@ -3,7 +3,7 @@ services:
   did:
     build:
       context: .
-      dockerfile: ./.docker/Dockerfile
+      dockerfile: ./Dockerfile
     container_name: did
     hostname: did
     tty: true
