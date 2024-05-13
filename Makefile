@@ -28,8 +28,9 @@ init: ## Initialize my favorite environment container.
 	@sleep 8
 	@docker compose exec -w /root/dotfiles did make init
 
+PHONY := clean
 clean: ## Remove all container information.
-	@docker compose down --rmi all --remove-orphans --volumes
+	@docker compose down --rmi all --volumes
 
 reset: ## clean & init
 	@make clean
